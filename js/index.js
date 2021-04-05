@@ -13,8 +13,15 @@ function formatDate() {
     //return [year, month, day].join('-');
     return [month, day].join('-');
 }
+
+
+
+// register ServiceWorker, remember to use absolute path!
+if (navigator.serviceWorker) {
+    navigator.serviceWorker.register('/Nsalli/js/sw.js', {scope: '/Nsalli/'})
+  }
 var today = formatDate();
-$('#date-today').text(today);
+$('#date-today').text(new Date());
 $('#time-fejr').text(london[today]['Fejr']);
 $('#time-sunrise').text(london[today]['Sunrise']);
 $('#time-dohr').text(london[today]['Dohr']);
