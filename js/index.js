@@ -14,6 +14,7 @@ function formatDate() {
     return [month, day].join('-');
 }
 var today = formatDate();
+$('#date-today').text(today);
 $('#time-fejr').text(london[today]['Fejr']);
 $('#time-sunrise').text(london[today]['Sunrise']);
 $('#time-dohr').text(london[today]['Dohr']);
