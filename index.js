@@ -21,7 +21,8 @@ if (navigator.serviceWorker) {
     navigator.serviceWorker.register('/Nsalli/sw.js', {scope: '/Nsalli/'})
   }
 var today = formatDate();
-$('#date-today').text(new Date());
+var ddate = new Date();
+$('#date-today').text(ddate.toDateString());
 $('#time-fejr').text(london[today]['Fejr']);
 $('#time-sunrise').text(london[today]['Sunrise']);
 $('#time-dohr').text(london[today]['Dohr']);
