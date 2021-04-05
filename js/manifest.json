@@ -1,0 +1,16 @@
+{
+  "name": "Nsalli",
+  "short_name": "Nsalli",
+  "theme_color": "#1c2833",
+  "background_color": "#5D6D7E",
+  "icons": [
+      {
+        "src": "/static/img/nsalli.ico/icon-192x192.png",
+        "type": "image/png",
+        "sizes": "192x192"
+      }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait"
+}
