@@ -18,7 +18,7 @@ function formatDate() {
 
 // register ServiceWorker, remember to use absolute path!
 if (navigator.serviceWorker) {
-    navigator.serviceWorker.register('/Nsalli/js/sw.js', {scope: '/Nsalli/'})
+    navigator.serviceWorker.register('/Nsalli/js/sw.js', {scope: '/Nsalli/js/'})
   }
 var today = formatDate();
 $('#date-today').text(new Date());
