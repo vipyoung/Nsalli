@@ -4,7 +4,8 @@
   <title>Nsalli</title>
   <link rel="canonical" href="https://vipyoung.github.io/Nsalli/" />
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
     <meta name="author" content="sofiane@abbar.me">
     <link rel="apple-touch-icon" sizes="192x192" href="static/img/nsalli.ico/icon-192x192.png">
     <link rel="icon" type="image/png" sizes="192x192"  href="static/img/nsalli.ico/icon-192x192.png">
@@ -18,7 +19,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+	<nav class="navbar navbar-expand-md bg-dark navbar-dark navbar-fixed-top">
 	  <!-- Brand -->
 	  <a class="navbar-brand" href="#">
     		<img src="static/img/nsalli.ico/icon-192x192.png" alt="Logo" style="width:40px;">
@@ -53,8 +54,8 @@
 	</div>
 		
 	<div class="row mt-1">
-		<div class="col col-4 text-center">
-			<div class="card bg-light">
+		<div class="col col-6 text-center">
+			<div class="card bg-light prayer-card" id="fejr-card">
 			  <div class="card-header">Fejr</div>
 			  <div class="card-body">
 			    <h5 class="card-title" id="time-fejr"></h5>
@@ -62,8 +63,8 @@
 			  <div class="card-footer">الفجر</div>
 			</div>
 		</div>
-		<div class="col col-4 text-center">
-			<div class="card bg-light">
+		<div class="col col-6 text-center">
+			<div class="card bg-light prayer-card" id="sunrise-card">
 			  <div class="card-header">Sunrise</div>
 			  <div class="card-body">
 			    <h5 class="card-title" id="time-sunrise"></h5>
@@ -71,8 +72,10 @@
 			  <div class="card-footer">الشروق</div> 
 			</div>
 		</div>
-		<div class="col col-4 text-center">
-			<div class="card bg-light">
+	</div>
+	<div class="row mt-1">
+		<div class="col col-6 text-center">
+			<div class="card bg-light prayer-card" id="dohr-card">
 			  <div class="card-header">Dohr</div>
 			  <div class="card-body">
 			    <h5 class="card-title" id="time-dohr"></h5>
@@ -80,10 +83,8 @@
 			  <div class="card-footer">الظهر</div>
 			</div>
 		</div>
-	</div>
-	<div class="row mt-3">	
-		<div class="col col-4 text-center">
-			<div class="card bg-light">
+		<div class="col col-6 text-center">
+			<div class="card bg-light prayer-card" id="asr-card">
 			  <div class="card-header">Asr</div>
 			  <div class="card-body">
 			    <h5 class="card-title" id="time-asr"></h5>
@@ -91,8 +92,10 @@
 			  <div class="card-footer">العصر</div>
 			</div>
 		</div>
-		<div class="col col-4 text-center">
-			<div class="card text-white bg-success">
+	</div>
+	<div class="row mt-1">	
+		<div class="col col-6 text-center">
+			<div class="card bg-light prayer-card" id="maghreb-card">
 			  <div class="card-header">Maghreb</div>
 			  <div class="card-body">
 			    <h5 class="card-title" id="time-maghreb"></h5>
@@ -100,8 +103,8 @@
 			  <div class="card-footer">المغرب</div>
 			</div>
 		</div>
-		<div class="col col-4 text-center">
-			<div class="card bg-light">
+		<div class="col col-6 text-center">
+			<div class="card bg-light prayer-card" id="icha-card">
 			  <div class="card-header">Icha</div>
 			  <div class="card-body">
 			    <h5 class="card-title" id="time-icha"></h5>
@@ -111,7 +114,6 @@
 		</div>
 	</div>
 	<hr/>
-
 		
 </body>
 	<script src="js/london_tt.js"></script>

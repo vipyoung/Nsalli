@@ -1,7 +1,6 @@
 
-function formatDate() {
-    var d = new Date(),
-        month = '' + (d.getMonth() + 1),
+function formatDate(d) {
+    var month = '' + (d.getMonth() + 1),
         day = '' + d.getDate(),
         year = d.getFullYear();
 
@@ -14,14 +13,44 @@ function formatDate() {
     return [month, day].join('-');
 }
 
+function nextPrayer(d, today) {
+    var hour = d.getHours();
+    var prayers = ['Fejr', 'Dohr', 'Asr', 'Maghreb', 'Icha'];
+    var x = parseInt(london[today]['Fejr'].split(":")[0]);
+    if (hour < x){
+	return "fejr-card";
+    }
+    x = parseInt(london[today]['Dohr'].split(":")[0]);
+    if (x < 10)
+	x += 12;
+    if (hour < x){
+	return "dohr-card";
+    }
+    x = 12 + parseInt(london[today]['Asr'].split(":")[0]);
+    if (hour < x){
+	return "asr-card";
+    }
+    x = 12 + parseInt(london[today]['Maghreb'].split(":")[0]);
+    if (hour < x){
+	return "maghreb-card";
+    }
+    x = 12 + parseInt(london[today]['Icha'].split(":")[0]);
+    if (hour < x){
+	return "icha-card";
+    }
+    return "fejr-card";
+}
 
+function update_card_activation(active_card){
+	$(".prayer-card").removeClass("bg-success text-white").addClass("bg-light");
+	$('#' + active_card).removeClass("bg-light").addClass("bg-success text-white");
+	
+}
 
-// register ServiceWorker, remember to use absolute path!
-if (navigator.serviceWorker) {
-    navigator.serviceWorker.register('/Nsalli/sw.js', {scope: '/Nsalli/'})
-  }
-var today = formatDate();
 var ddate = new Date();
+var today = formatDate(ddate);
+var active_card = nextPrayer(ddate, today);
+
 $('#date-today').text(ddate.toDateString());
 $('#time-fejr').text(london[today]['Fejr']);
 $('#time-sunrise').text(london[today]['Sunrise']);
@@ -29,3 +58,10 @@ $('#time-dohr').text(london[today]['Dohr']);
 $('#time-asr').text(london[today]['Asr']);
 $('#time-maghreb').text(london[today]['Maghreb']);
 $('#time-icha').text(london[today]['Icha']);
+
+update_card_activation(active_card);
+
+// register ServiceWorker, remember to use absolute path!
+if (navigator.serviceWorker) {
+    navigator.serviceWorker.register('/Nsalli/sw.js', {scope: '/Nsalli/'})
+  }
