@@ -14,28 +14,30 @@ function formatDate(d) {
 }
 
 function nextPrayer(d, today) {
-    var hour = d.getHours();
+    var hour = d.getHours(),
+	mins = d.getMinutes();
     var prayers = ['Fejr', 'Dohr', 'Asr', 'Maghreb', 'Icha'];
     var x = parseInt(london[today]['Fejr'].split(":")[0]);
-    if (hour < x){
+    var m = parseInt(london[today]['Fejr'].split(":")[1]);
+    if ((hour < x) || (hour == x && mins <= m)){
 	return "fejr-card";
     }
     x = parseInt(london[today]['Dohr'].split(":")[0]);
     if (x < 10)
 	x += 12;
-    if (hour < x){
+    if ((hour < x) || (hour == x && mins <= m)){
 	return "dohr-card";
     }
     x = 12 + parseInt(london[today]['Asr'].split(":")[0]);
-    if (hour < x){
+    if ((hour < x) || (hour == x && mins <= m)){
 	return "asr-card";
     }
     x = 12 + parseInt(london[today]['Maghreb'].split(":")[0]);
-    if (hour < x){
+    if ((hour < x) || (hour == x && mins <= m)){
 	return "maghreb-card";
     }
     x = 12 + parseInt(london[today]['Icha'].split(":")[0]);
-    if (hour < x){
+    if ((hour < x) || (hour == x && mins <= m)){
 	return "icha-card";
     }
     return "fejr-card";
