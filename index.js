@@ -16,28 +16,31 @@ function formatDate(d) {
 function nextPrayer(d, today) {
     var hour = d.getHours(),
 	mins = d.getMinutes();
-    var prayers = ['Fejr', 'Dohr', 'Asr', 'Maghreb', 'Icha'];
-    var x = parseInt(london[today]['Fejr'].split(":")[0]);
+    var h = parseInt(london[today]['Fejr'].split(":")[0]);
     var m = parseInt(london[today]['Fejr'].split(":")[1]);
-    if ((hour < x) || (hour == x && mins <= m)){
+    if ((hour < h) || (hour == h && mins <= m)){
 	return "fejr-card";
     }
-    x = parseInt(london[today]['Dohr'].split(":")[0]);
+    h = parseInt(london[today]['Dohr'].split(":")[0]);
+    m = parseInt(london[today]['Dohr'].split(":")[1]);
     if (x < 10)
 	x += 12;
-    if ((hour < x) || (hour == x && mins <= m)){
+    if ((hour < h) || (hour == h && mins <= m)){
 	return "dohr-card";
     }
-    x = 12 + parseInt(london[today]['Asr'].split(":")[0]);
-    if ((hour < x) || (hour == x && mins <= m)){
+    h = 12 + parseInt(london[today]['Asr'].split(":")[0]);
+    m = parseInt(london[today]['Asr'].split(":")[1]);
+    if ((hour < h) || (hour == h && mins <= m)){
 	return "asr-card";
     }
-    x = 12 + parseInt(london[today]['Maghreb'].split(":")[0]);
-    if ((hour < x) || (hour == x && mins <= m)){
+    h = 12 + parseInt(london[today]['Maghreb'].split(":")[0]);
+    m = parseInt(london[today]['Maghreb'].split(":")[1]);
+    if ((hour < h) || (hour == h && mins <= m)){
 	return "maghreb-card";
     }
-    x = 12 + parseInt(london[today]['Icha'].split(":")[0]);
-    if ((hour < x) || (hour == x && mins <= m)){
+    h = 12 + parseInt(london[today]['Icha'].split(":")[0]);
+    m = parseInt(london[today]['Icha'].split(":")[1]);
+    if ((hour < h) || (hour == h && mins <= m)){
 	return "icha-card";
     }
     return "fejr-card";
@@ -46,7 +49,6 @@ function nextPrayer(d, today) {
 function update_card_activation(active_card){
 	$(".prayer-card").removeClass("bg-success text-white").addClass("bg-light");
 	$('#' + active_card).removeClass("bg-light").addClass("bg-success text-white");
-	
 }
 
 var ddate = new Date();
@@ -67,3 +69,12 @@ update_card_activation(active_card);
 if (navigator.serviceWorker) {
     navigator.serviceWorker.register('/Nsalli/sw.js', {scope: '/Nsalli/'})
   }
+
+const button = document.getElementById('notifications');
+button.addEventListener('click', () => {
+  Notification.requestPermission().then((result) => {
+    if (result === 'granted') {
+      randomNotification();
+    }
+  });
+})
