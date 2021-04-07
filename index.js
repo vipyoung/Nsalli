@@ -23,8 +23,8 @@ function nextPrayer(d, today) {
     }
     h = parseInt(london[today]['Dohr'].split(":")[0]);
     m = parseInt(london[today]['Dohr'].split(":")[1]);
-    if (x < 10)
-	x += 12;
+    if (h < 10)
+	h += 12;
     if ((hour < h) || (hour == h && mins <= m)){
 	return "dohr-card";
     }
