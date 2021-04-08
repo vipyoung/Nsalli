@@ -3,7 +3,10 @@ var VERSION = 'version_01'              // Version of the off-line cache (change
 var CACHE_NAME = APP_PREFIX + VERSION
 var URLS = [                            // Add URL you want to cache in this list.
   '/Nsalli/',                     // If you have separate JS/CSS files,
-  '/Nsalli/index.html'            // add path to those files here
+  '/Nsalli/index.html',            // add path to those files here
+  '/Nsalli/index.js',
+  '/Nsalli/data/LondonPrayerTimeTable.json',
+  '/Nsalli/static/css/index.css'
 ]
 
 // Respond with cached resources

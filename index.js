@@ -70,6 +70,9 @@ if (navigator.serviceWorker) {
     navigator.serviceWorker.register('/Nsalli/sw.js', {scope: '/Nsalli/'})
   }
 
+var text = 'HEY! Rouh Tsalli';
+var notification = new Notification('Nsalli', { body: text });
+
 const button = document.getElementById('notifications');
 button.addEventListener('click', () => {
   Notification.requestPermission().then((result) => {
